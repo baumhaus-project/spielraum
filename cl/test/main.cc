@@ -8,7 +8,8 @@
 
 int main(int argc, char** argv) {
   auto input_file = cista::mmap{argv[1], cista::mmap::protection::READ};
-  auto const ifc_input = utl::cstr{reinterpret_cast<char const*>(input_file.data()), input_file.size()};
+  auto const ifc_input = utl::cstr{
+      reinterpret_cast<char const*>(input_file.data()), input_file.size()};
 
   auto parser = step::entry_parser{};
   IFC2X3::register_all_types(parser);
