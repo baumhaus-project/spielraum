@@ -10,3 +10,7 @@
   url=git@github.com:motis-project/doctest.git
   branch=master
   commit=932a2ca50666138256dae56fbb16db3b1cae133a
+[express2cpp]
+  url=git@github.com:baumhaus-project/express2cpp.git
+  branch=master
+  commit=6b835d0804f72a65c8faeb7d29980acaa72b1ebe
