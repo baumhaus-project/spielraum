@@ -38,8 +38,7 @@ std::string ifc_str(std::string const& guid) {
 #include "utl/parser/cstr.h"
 
 template <typename T>
-T const& get_product_by_guid(step::model& model,
-                                     std::string const& guid) {
+T const& get_product_by_guid(step::model& model, std::string const& guid) {
   for (unsigned i = 0; i < model.id_to_entity_.size(); ++i) {
     if (model.id_to_entity_.at(i) != nullptr) {
       try {
@@ -59,8 +58,7 @@ void test() {
   auto const guid = "0Gkk91VZX968DF0GjbXoN4";
   auto const ifc_input = ifc_str(guid);
 
-  auto model =
-  IFC2X3::parse(ifc_input);
+  auto model = IFC2X3::parse(ifc_input);
 
   auto const& prod = get_product_by_guid<IFC2X3::IfcProduct>(model, guid);
   std::cout << prod.GlobalId_ << std::endl;
