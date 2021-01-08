@@ -13,4 +13,4 @@
 [express2cpp]
   url=git@github.com:baumhaus-project/express2cpp.git
   branch=master
-  commit=c2c5b06f5c8ea252e95ee8103faa9298dc8d3324
+  commit=abde71c2f6e25d027e27293a2f1cf5f8d1a73038

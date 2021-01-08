@@ -1,10 +1,7 @@
 #include "cista/mmap.h"
 
-#include "step/entity_map.h"
-#include "step/parse_step.h"
-
 #include "IFC2X3/IfcProduct.h"
-#include "IFC2X3/register_all_types.h"
+#include "IFC2X3/parser.h"
 
 std::string ifc_str(std::string const& guid) {
   return "#96945 = IFCFLOWCONTROLLER('" + guid +
@@ -41,14 +38,12 @@ std::string ifc_str(std::string const& guid) {
 #include "utl/parser/cstr.h"
 
 template <typename T>
-std::optional<T> get_product_by_guid(step::entity_map& model,
+T const& get_product_by_guid(step::model& model,
                                      std::string const& guid) {
   for (unsigned i = 0; i < model.id_to_entity_.size(); ++i) {
     if (model.id_to_entity_.at(i) != nullptr) {
-      auto e = model.id_to_entity_.at(i);
-      std::cout << e->name_ << std::endl;
       try {
-        auto prod = model.get_entity<T>(step::id_t{i});
+        auto const& prod = model.get_entity<T>(step::id_t{i});
         if (prod.GlobalId_ == guid) {
           return prod;
         }
@@ -56,22 +51,19 @@ std::optional<T> get_product_by_guid(step::entity_map& model,
       }
     }
   }
-  return std::nullopt;
+  utl::verify(false, "no entity with GUID {} found", guid);
+  throw;
 }
 
 void test() {
   auto const guid = "0Gkk91VZX968DF0GjbXoN4";
   auto const ifc_input = ifc_str(guid);
 
-  auto parser = step::entry_parser{};
-  IFC2X3::register_all_types(parser);
-  auto model = step::entity_map{parser, ifc_input};
+  auto model =
+  IFC2X3::parse(ifc_input);
 
-  auto prod = get_product_by_guid<IFC2X3::IfcProduct>(model, guid);
-
-  if (prod.has_value()) {
-    std::cout << prod->GlobalId_ << std::endl;
-  }
+  auto const& prod = get_product_by_guid<IFC2X3::IfcProduct>(model, guid);
+  std::cout << prod.GlobalId_ << std::endl;
 }
 
 int main(int argc, char** argv) {
