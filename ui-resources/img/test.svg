@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../css/svg.css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="svg" version="1.2" width="1920" height="1440" xmlns="http://www.w3.org/2000/svg">
+    <rect id="r1" class="room" fill="rgb(232,242,161)" width="800" height="500" x="25" y="25"/>
+    <rect id="r2" class="room" fill="rgb(142,134,174)" width="575" height="750" x="850" y="25"/>
+    <rect id="r3" class="room" fill="rgb(129,172,166)" width="450" height="500" x="1450" y="25"/>
+    <rect id="r4" class="room" fill="rgb(255,191,0)" width="450" height="225" x="1450" y="550"/>
+    <rect id="r5" class="room" fill="rgb(114,159,207)" width="1050" height="625" x="850" y="800"/>
+    <rect id="r6" class="room" fill="rgb(255,123,89)" width="800" height="875" x="25" y="550"/>
+</svg>

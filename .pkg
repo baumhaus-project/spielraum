@@ -13,8 +13,12 @@
 [wxWidgets]
   url=git@github.com:wxWidgets/wxWidgets.git
   branch=master
-  commit=b58ee58a7bf7a954a34680d3765f42fffd962860
+  commit=db3e54b3dc5a4af812dea6e3945a2339ab01cbe2
 [express2cpp]
   url=git@github.com:baumhaus-project/express2cpp.git
   branch=master
   commit=b54fbedff54cc23efd3bd44a028371b35b875816
+[pugixml]
+  url=git@github.com:motis-project/pugixml.git
+  branch=master
+  commit=60175e80e2f5e97e027ac78f7e14c5acc009ce50
